@@ -11,3 +11,39 @@ This project aims to understand how disconnected property tax revenues and marke
 individuals/corporations can take advantage of Prop 13. Our project will have the additional benefit of unifying local county property tax data into a single
 map—something that doesn't exist at the state level. 
 ```
+
+# Los Angeles Real Estate Parcel Mapping Project
+
+## Project Overview
+This project maps real estate parcels in Los Angeles, associates them with tax bills and property values, and visualizes the data. It involves processing a geodatabase (GDB), web scraping tax information, and creating interactive maps.
+
+## Files and Scripts
+- `location-to-ain.py`: Extracts location and AIN from the GDB file.
+- `apn-to-tax.py`: Fetches tax information for each AIN.
+- `create-map.py`: Creates visual maps of parcels with tax and property value information.
+- `data-analysis.py`: Analyzes the collected data and generates insights.
+
+## Setup
+1. Clone the repository.
+2. Install Pipenv: `pip install pipenv`.
+3. Install dependencies: `pipenv install` (or `poetry install` if using Poetry).
+4. Activate the environment: `pipenv shell` (or `poetry shell` if using Poetry).
+5. Run the scripts in the following order:
+    - `python apn-to-location.py`
+    - `python apn-to-tax.py`
+    - `python create-map.py`
+    - `python data-analysis.py`
+
+## Dependencies
+- beautifulsoup4
+- requests
+- geopandas
+- folium
+- matplotlib
+- pandas
+
+## Usage
+1. Extract APN to location data using `apn-to-location.py`.
+2. Fetch tax information using `apn-to-tax.py`.
+3. Create visual maps using `create-map.py`.
+4. Perform data analysis using `data-analysis.py`.
