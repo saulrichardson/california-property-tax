@@ -12,6 +12,8 @@ geopandas = "*"
 matplotlib = "*"
 pandas = "*"
 fiona = "*"
+sqlalchemy = "*"
+flask = "*"
 
 [dev-packages]
 
