@@ -1,7 +1,3 @@
-Here's a README template for your Flask application that maps Los Angeles property tax data:
-
----
-
 # LA Property Tax Map
 
 ## Overview
