@@ -68,7 +68,10 @@ def index():
     # Save the map as an HTML file
     map_path = 'static/map.html'
     m.save(map_path)
-    return render_template('index.html', map_file='map.html')
+
+    base_url = os.getenv('BASE_URL', '')
+
+    return render_template('index.html', map_file='map.html', base_url=base_url)
 
 @freezer.register_generator
 def index():
