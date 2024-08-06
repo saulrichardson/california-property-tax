@@ -26,6 +26,11 @@ jobs:
       - name: Build static files
         run: |
           pipenv run python build_app.py
+          
+      - name: Create gh-pages branch if not exists
+        run: |
+          git fetch origin gh-pages || git checkout --orphan gh-pages
+          git checkout gh-pages
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
