@@ -1,14 +1,13 @@
-name: Deploy to GitHub Pages
+name: Deploy Flask App to GitHub Pages
 
 on:
   push:
     branches:
       - main
-      
-jobs:
-  build:
-    runs-on: ubuntu-latest
 
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -17,20 +16,15 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-          
+
       - name: Install dependencies
         run: |
           pip install pipenv
-          pipenv install --dev
+          pipenv install
 
-      - name: Build static files
+      - name: Build the static site
         run: |
           pipenv run python build_app.py
-          
-      - name: Create gh-pages branch if not exists
-        run: |
-          git fetch origin gh-pages || git checkout --orphan gh-pages
-          git checkout gh-pages
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

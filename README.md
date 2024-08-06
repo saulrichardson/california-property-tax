@@ -8,6 +8,7 @@ The LA Property Tax Map is a Flask application that visualizes property tax data
 
 - Python 3.6+
 - Flask
+- Frozen-Flask
 - Folium
 - GeoPandas
 - Pandas
@@ -15,10 +16,10 @@ The LA Property Tax Map is a Flask application that visualizes property tax data
 
 ### Usage
 
-4. **Run the Flask application**:
+1. **Run the Flask application**:
     ```bash
     python app.py
     ```
 
-5. **Access the application**:
+2. **Access the application**:
    Open your web browser and navigate to `http://127.0.0.1:5000` to view the map.
