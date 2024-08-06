@@ -15,6 +15,7 @@ fiona = "*"
 sqlalchemy = "*"
 flask = "*"
 frozen-flask = "*"
+selenium = "*"
 
 [dev-packages]
 
