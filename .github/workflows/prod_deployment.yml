@@ -3,7 +3,7 @@ name: Deploy Prod-Ready Flask App to GitHub Pages
 on:
   push:
     branches:
-      - production
+      - prod
 
 jobs:
   deploy:
