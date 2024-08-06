@@ -1,0 +1,40 @@
+name: Deploy Prod-Ready Flask App to GitHub Pages
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install pipenv
+          pipenv install
+          
+      - name: Download and extract GDB
+        run: |
+          curl -L -o /tmp/LACounty_Parcels.zip https://apps.gis.lacounty.gov/hubfiles/LACounty_Parcels.zip
+          unzip /tmp/LACounty_Parcels.zip -d /tmp/gdb
+
+      - name: Build the static site
+        run: |
+          export BASE_URL=/california-property-tax
+          pipenv run python build_app.py
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages
