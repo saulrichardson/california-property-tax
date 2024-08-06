@@ -3,8 +3,10 @@ import folium
 import geopandas as gpd
 import pandas as pd
 from shapely.geometry import Point
+from flask_frozen import Freezer
 
 app = Flask(__name__)
+freezer = Freezer(app)
 
 # Sample GeoDataFrame data
 data = {
@@ -62,6 +64,10 @@ def index():
     map_path = 'static/map.html'
     m.save(map_path)
     return render_template('index.html', map_file='map.html')
+
+@freezer.register_generator
+def index():
+    return '/'
 
 if __name__ == '__main__':
     app.run(debug=True)
