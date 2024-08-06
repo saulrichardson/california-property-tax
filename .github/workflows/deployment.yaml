@@ -3,10 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # Set this to the branch you want to deploy from
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,24 +16,21 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.8' # Change to the version of Python you are using
+        python-version: '3.9'
 
     - name: Install dependencies
       run: |
-        python -m venv venv
-        source venv/bin/activate
-        pip install -r requirements.txt
+        python -m pip install --upgrade pip
+        pip install pipenv
+        pipenv install --deploy --ignore-pipfile
 
-    - name: Freeze Flask application
+    - name: Build project
       run: |
-        source venv/bin/activate
-        python app.py
-      env:
-        FLASK_ENV: production
-        FLASK_APP: app
+        pipenv run python -m flask run
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: build  # This is where Frozen-Flask will output the static files
+        publish_dir: templates
+        publish_branch: gh-pages
