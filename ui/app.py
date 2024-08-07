@@ -68,6 +68,8 @@ def index():
 
     # Save the map as an HTML file
     map_path = 'static/map.html'
+    if base_url != '':
+        map_path = 'ui/' + map_path
     m.save(map_path)
     print(f"Saving map to {os.path.abspath(map_path)}")
 
