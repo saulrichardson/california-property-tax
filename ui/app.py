@@ -66,16 +66,11 @@ def index():
         ).add_to(m)
 
     # Save the map as an HTML file
-    map_path = 'static/map.html'
-    if os.getenv('BASE_URL', '') != '':
-        map_path = 'ui/' + map_path
-    print(f"Saving map to {os.path.abspath(map_path)}")
-    m.save(map_path)
+    m.save("map.html")
 
     base_url = os.getenv('BASE_URL', '')
 
-
-    return render_template('index.html', map_file='map.html', base_url=base_url)
+    return render_template('index.html', map_file="map.html", base_url=base_url)
 
 @freezer.register_generator
 def index():
