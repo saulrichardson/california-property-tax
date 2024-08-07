@@ -7,8 +7,8 @@ import pandas as pd
 from shapely.geometry import Point
 from flask_frozen import Freezer
 
-if not os.path.exists('./static'):
-    os.makedirs('./static')
+if not os.path.exists('static'):
+    os.makedirs('static')
 
 app = Flask(__name__)
 freezer = Freezer(app)
