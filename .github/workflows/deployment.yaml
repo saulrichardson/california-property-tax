@@ -24,7 +24,7 @@ jobs:
 
       - name: Build the static site
         run: |
-          export BASE_URL=/california-property-tax/ui
+          export BASE_URL=/california-property-tax/
           pipenv run python ui/build_app.py
 
       - name: Deploy to GitHub Pages
