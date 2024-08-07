@@ -70,8 +70,8 @@ def index():
     map_path = 'static/map.html'
     if base_url != '':
         map_path = 'ui/' + map_path
-    m.save(map_path)
     print(f"Saving map to {os.path.abspath(map_path)}")
+    m.save(map_path)
 
     return render_template('index.html', map_file='map.html', base_url=base_url)
 
