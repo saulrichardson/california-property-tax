@@ -12,7 +12,7 @@ if not os.path.exists('./static'):
 
 app = Flask(__name__)
 freezer = Freezer(app)
-app.config['FREEZER_DESTINATION'] = '../build'
+base_url = os.getenv('BASE_URL', '')
 
 # Sample GeoDataFrame data
 data = {
@@ -66,11 +66,12 @@ def index():
             popup=f"APN: {row['APN']}<br>TAX BILL: {row['TAX_BILL']}<br>MARKET VALUE: {row['MARKET_VALUE']}"
         ).add_to(m)
 
-    m.save("static/map.html")
+    # Save the map as an HTML file
+    map_path = 'static/map.html'
+    m.save(map_path)
+    print(f"Saving map to {os.path.abspath(map_path)}")
 
-    base_url = os.getenv('BASE_URL', '')
-
-    return render_template('index.html', map_file="map.html", base_url=base_url)
+    return render_template('index.html', map_file='map.html', base_url=base_url)
 
 @freezer.register_generator
 def index():
