@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Angeles Property Tax Map</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+    <div class="row text-center p-1 py-md-3 px-md-2">
+        <h1>LA Property Tax Map</h1>
+    </div>
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
+            <button class="nav-link" id="nav-property-details-tab" data-bs-toggle="tab" data-bs-target="#nav-property-details" type="button" role="tab" aria-controls="nav-property-details" aria-selected="false" tabindex="-1">Property Details</button>
+            <button class="nav-link" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about" type="button" role="tab" aria-controls="nav-about" aria-selected="false" tabindex="-1">About</button>
+        </div>
+    </nav>
+    <div class="tab-content pt-2 d-md-block" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+            <div class="row small">
+                <div class="col-md-6">
+                    <p>
+                        <b>This map visualizes Los Angeles property taxes.</b> Each dot represents a property, color-coded based on its effective tax rate. <span class="d-inline d-md-none">Search for an address in the box below or tap on a property on the map to view its tax bill.</span>
+                    </p>
+                    <p class="d-none d-md-block">
+                        Search for an address in the box below or tap on a property on the map to view its tax bill.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        <b>Los Angeles' property tax system can be complex.</b> Similar properties may be taxed at different rates. Read more on <i>Los Angeles Property Tax Insights</i> about <a href="#" target="_blank">Los Angeles' property tax system</a> and <a href="#" target="_blank">how it affects property owners</a>.
+                    </p>
+                    <p class="d-none d-md-block">
+                        Read more on <i>Los Angeles Property Tax Insights</i> about <a href="#" target="_blank">Los Angeles' property tax system</a> and <a href="#" target="_blank">how it affects property owners</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-property-details" role="tabpanel" aria-labelledby="nav-property-details-tab" tabindex="0">
+            <div class="row" id="property-details-drawer">
+                <p>Search for an address in the box below or tap on a property on the map to view its tax bill.</p>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab" tabindex="0">
+            <div class="row small">
+                <div class="col-md-6">
+                    <p>
+                        This map was created to provide insights into Los Angeles property taxes. Many factors can influence tax rates, and this map aims to help users understand these variations.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p>
+                        The code that powers this map is available on <a href="#" target="_blank">GitHub</a>. The data used is sourced from official Los Angeles County sources.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Map container -->
+    <div id="map" class="mt-4">
+        <!-- The map will be embedded here -->
+        <iframe src="/california-property-tax/static/map.html" width="100%" height="600" frameborder="0"></iframe>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script>
+    window.addEventListener('message', function(event) {
+        if (event.data.type === 'propertyDetails') {
+            const content = event.data.content;
+            document.getElementById('property-details-drawer').innerHTML = content;
+            const myTab = new bootstrap.Tab(document.getElementById('nav-property-details-tab'));
+            myTab.show();
+        }
+    });
+</script>
+</body>
+</html>
