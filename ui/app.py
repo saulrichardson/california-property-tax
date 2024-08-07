@@ -70,6 +70,7 @@ def index():
     m.save(map_path)
 
     base_url = os.getenv('BASE_URL', '')
+    app.config['FREEZER_BASE_URL'] = base_url
 
     return render_template('index.html', map_file='map.html', base_url=base_url)
 
