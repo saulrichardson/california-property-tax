@@ -1,4 +1,5 @@
 /.idea/
 /build/
-/static/
+map.html
+/resources/
 california-property-tax.iml

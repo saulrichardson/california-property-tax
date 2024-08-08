@@ -1,7 +1,5 @@
 import os
-
-from flask import Flask, render_template
-import folium
+from flask import Flask, render_template, jsonify
 import geopandas as gpd
 import pandas as pd
 from shapely.geometry import Point
@@ -39,39 +37,14 @@ def update_dataframe_with_csv(gdf, csv_df):
 
 gdf = update_dataframe_with_csv(gdf, csv_df)
 
-# Function to determine color based on ratio
-def color_based_on_ratio(ratio):
-    if ratio < 0.1:
-        return 'green'
-    elif ratio < 0.3:
-        return 'yellow'
-    elif ratio < 0.5:
-        return 'orange'
-    else:
-        return 'red'
+@app.route('/data')
+def get_data():
+    geojson = gdf.to_json()
+    return geojson, 200, {'Content-Type': 'application/json'}
 
 @app.route('/')
 def index():
-    # Create a map centered around the average location
-    m = folium.Map(location=[gdf.geometry.y.mean(), gdf.geometry.x.mean()], zoom_start=10)
-
-    # Add circles to the map
-    for _, row in gdf.iterrows():
-        folium.CircleMarker(
-            location=[row.geometry.y, row.geometry.x],
-            radius=5,
-            color=color_based_on_ratio(row['RATIO']),
-            fill=True,
-            fill_color=color_based_on_ratio(row['RATIO']),
-            popup=f"APN: {row['APN']}<br>TAX BILL: {row['TAX_BILL']}<br>MARKET VALUE: {row['MARKET_VALUE']}"
-        ).add_to(m)
-
-    # Save the map as an HTML file
-    map_path = 'static/map.html'
-    m.save(map_path)
-    print(f"Saving map to {os.path.abspath(map_path)}")
-
-    return render_template('index.html', map_file='map.html', base_url=base_url)
+    return render_template('index.html', base_url=base_url)
 
 @freezer.register_generator
 def index():
