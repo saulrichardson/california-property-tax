@@ -5,7 +5,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-fetch('/data')
+fetch('./data.json')
     .then(response => response.json())
     .then(data => {
         L.geoJSON(data, {
@@ -17,16 +17,15 @@ fetch('/data')
 
                 layer.on('click', () => {
                     // Update Property Details tab
-                    content =
-                        `
+                    const content = `
                         <div class="property-details-content">
                             <p><b>APN:</b> ${apn}</p>
                             <p><b>TAX BILL:</b> ${taxBill}</p>
                             <p><b>MARKET VALUE:</b> ${marketValue}</p>
                             <p><b>RATIO:</b> ${ratio}</p>
                         </div>
-                        `
-                    window.postMessage({type: 'propertyDetails', content: content}, '*');
+                    `;
+                    window.postMessage({ type: 'propertyDetails', content: content }, '*');
                 });
             },
             pointToLayer: function (feature, latlng) {
@@ -52,8 +51,7 @@ function colorBasedOnRatio(ratio) {
 
 window.addEventListener('message', function (event) {
     if (event.data.type === 'propertyDetails') {
-        const content = event.data.content;
-        document.getElementById('property-details-drawer').innerHTML = content;
+        document.getElementById('property-details-drawer').innerHTML = event.data.content;
         const myTab = new bootstrap.Tab(document.getElementById('nav-property-details-tab'));
         myTab.show();
     }
