@@ -12,6 +12,8 @@ matplotlib = "*"
 pandas = "*"
 fiona = "*"
 sqlalchemy = "*"
+geojson = "*"
+fitz = "*"
 
 [dev-packages]
 
