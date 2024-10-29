@@ -13,7 +13,7 @@ pandas = "*"
 fiona = "*"
 sqlalchemy = "*"
 geojson = "*"
-fitz = "*"
+pymupdf = "*"
 
 [dev-packages]
 

@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import time
-import fitz  # PyMuPDF
+import pymupdf
 import re
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -61,7 +61,7 @@ def extract_data_from_pdf(pdf_content):
     Extracts data from PDF content provided as bytes.
     """
     # Open the PDF from bytes
-    doc = fitz.open(stream=pdf_content, filetype="pdf")
+    doc = pymupdf.open(stream=pdf_content, filetype="pdf")
     text = ""
 
     # Extract text from each page
