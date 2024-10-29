@@ -5,15 +5,14 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
 
-fetch('./data.json')
-    .then(response => response.json())
+fetch('./tax_data.geojson')  // Update to the correct path of your GeoJSON file
     .then(data => {
         L.geoJSON(data, {
             onEachFeature: function (feature, layer) {
-                const apn = feature.properties.APN;
-                const taxBill = feature.properties.TAX_BILL;
-                const marketValue = feature.properties.MARKET_VALUE;
-                const ratio = feature.properties.RATIO;
+                const apn = feature.properties.AIN;
+                const taxBill = feature.properties.TAX_BILL || 'N/A';
+                const marketValue = feature.properties.MARKET_VALUE || 'N/A';
+                const ratio = feature.properties.RATIO || 0;
 
                 layer.on('click', () => {
                     // Update Property Details tab
@@ -43,10 +42,16 @@ fetch('./data.json')
     .catch(error => console.error('Error fetching GeoJSON data:', error));
 
 function colorBasedOnRatio(ratio) {
-    if (ratio < 0.1) return 'green';
-    if (ratio < 0.3) return 'yellow';
-    if (ratio < 0.5) return 'orange';
-    return 'red';
+    if (ratio === 0) return '#676767';  // Grey for invalid data
+    if (ratio < 0.05) return '#00FF00';  // Bright Green
+    if (ratio < 0.1) return '#66FF66';   // Light Green
+    if (ratio < 0.15) return '#CCFF99';  // Pale Yellow Green
+    if (ratio < 0.2) return '#FFFF00';   // Yellow
+    if (ratio < 0.25) return '#FFCC00';  // Light Orange
+    if (ratio < 0.3) return '#FF9900';   // Orange
+    if (ratio < 0.4) return '#FF6600';   // Dark Orange
+    if (ratio < 0.5) return '#FF3300';   // Red Orange
+    return '#FF0000';                     // Bright Red
 }
 
 window.addEventListener('message', function (event) {
