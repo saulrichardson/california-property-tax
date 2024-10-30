@@ -1,6 +1,5 @@
 import requests
 import csv
-import geojson
 import pandas as pd
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -24,7 +23,7 @@ def fetch_property_data(ain, max_retries=10):
                 return None
         except requests.exceptions.RequestException as e:
             if attempt == max_retries - 1:
-                logging.error(f"Max retries reached for AIN {ain}: {e}")
+                print(f"Max retries reached for AIN {ain}: {e}")
             time.sleep(2 ** attempt)  # Exponential backoff
     return None
 
