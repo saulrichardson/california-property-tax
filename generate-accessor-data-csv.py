@@ -3,7 +3,6 @@ import csv
 import pandas as pd
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import logging
 import math
 
 def fetch_ains(filename='ains.csv'):
