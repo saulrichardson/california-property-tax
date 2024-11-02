@@ -17,7 +17,10 @@ def get_pdf_links(ain, max_retries=5):
     Sends a POST request with the specified AIN to retrieve property tax PDF links.
     Implements exponential backoff for retries in case of failures.
     """
-    payload = {"ain": ain}
+    payload = {
+        "ain": ain,
+        "timestamp": int(time.time())  # Adds a Unix timestamp like in the curl command
+    }
     retries = 0
 
     while retries < max_retries:
@@ -60,56 +63,37 @@ def extract_data_from_pdf(pdf_content):
     """
     Extracts data from PDF content provided as bytes.
     """
-    # Open the PDF from bytes
-    doc = pymupdf.open(stream=pdf_content, filetype="pdf")
     text = ""
 
     # Extract text from each page
-    for page in doc:
+    for page in pdf_content:
         text += page.get_text("text")
 
-    doc.close()
+    pdf_content.close()
 
     # Extract relevant fields with regular expressions
     data = {}
-
-    # 1. Agency rates and amounts
-    agency_pattern = re.compile(r'(\w[\w\s]+)\s+\(?(\d{3}\)?[-\d]{0,10})?\s*([\d.]+)\s+\$\s*([\d.,]+)')
-    data['agencies'] = [
-        {'agency': match[0].strip(), 'rate': match[2], 'amount': match[3]}
-        for match in agency_pattern.findall(text)
-    ]
-
-    # 2. Current assessed value and taxable value
-    assessed_pattern = re.compile(r'CURRENT ASSESSED VALUE\s+TAXABLE VALUE\s+([\d,]+)\s+([\d,]+)')
-    match = assessed_pattern.search(text)
-    if match:
-        data['current_assessed_value'] = match.group(1).replace(',', '')
-        data['taxable_value'] = match.group(2).replace(',', '')
-
-    # 3. Exemption amount
-    exemption_pattern = re.compile(r'LESS EXEMPTION:\s*\$?\s*([\d,]+)')
-    match = exemption_pattern.search(text)
-    if match:
-        data['exemption'] = match.group(1).replace(',', '')
-
-    # 4. Total taxes paid ("1ST + 2ND" installment total)
-    total_tax_pattern = re.compile(r'1ST Installment\s+\$\s*([\d,]+)\s*2ND Installment\s+\$\s*([\d,]+)')
+    total_tax_pattern = re.compile(r'\$([\d,]+\.\d{2})\s*DUE NOVEMBER 1, 2024', re.MULTILINE)
     match = total_tax_pattern.search(text)
     if match:
-        first_installment = float(match.group(1).replace(',', ''))
-        second_installment = float(match.group(2).replace(',', ''))
-        data['total_taxes'] = first_installment + second_installment
+        data['total_taxes'] = match.group(1).replace(',', '')
 
+    print(data)
     return data
 
 def process_pdf_link(pdf_link, ain):
     """Processes a PDF link: fetches the PDF and extracts data."""
     try:
-        pdf_response = requests.get(pdf_link)
+        # Use a session to manage cookies, if required
+        session = requests.Session()
+
+        # Make request with session
+        pdf_response = session.get(pdf_link)
         pdf_response.raise_for_status()  # Check for request errors
         pdf_content = pdf_response.content
-        pdf_data = extract_data_from_pdf(pdf_content)
+
+        # Process the PDF content
+        pdf_data = extract_data_from_pdf(pymupdf.open(stream=pdf_content, filetype="pdf"))
         pdf_data['AIN'] = ain  # Add AIN to the data
         return pdf_data
     except requests.RequestException as e:
@@ -161,7 +145,7 @@ def process_ains_from_csv(input_csv, output_csv):
 
 if __name__ == '__main__':
     # Example usage
-    input_csv = 'ains.csv'  # Input CSV file containing AINs
+    input_csv = 'ains2.csv'  # Input CSV file containing AINs
     output_csv = 'extracted_data.csv'  # Output CSV file for extracted data
     # Run the processing
     process_ains_from_csv(input_csv, output_csv)
