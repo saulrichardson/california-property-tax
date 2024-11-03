@@ -5,6 +5,9 @@ import pymupdf
 import re
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from collections import defaultdict
+import os
+
 
 # Define constants
 API_URL = "https://ttc.lacounty.gov/secured-property-tax-results"
@@ -87,10 +90,11 @@ def extract_data_from_pdf(pdf_content):
         data['fiscal_year'] = year_match.group(1)
 
     # Extract land values
-    taxable_value_pattern = re.compile(r'TAXABLE VALUE\s+([\d,]+)\s+([\d,]+)', re.MULTILINE)
+    taxable_value_pattern = re.compile(r'TAXABLE VALUE\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)\s+([\d,]+)', re.MULTILINE)
     taxable_value_match = taxable_value_pattern.search(text)
     if taxable_value_match:
         data['taxable_land_value'] = taxable_value_match.group(1).replace(',', '')
+        data['taxable_improvements'] = taxable_value_match.group(3).replace(',', '')
 
     # Extract land value
     land_value_pattern = re.compile(r'LAND\s*([\d,]+)', re.MULTILINE)
@@ -159,8 +163,6 @@ def process_ain(ain):
 
     return pdf_data_list
 
-from collections import defaultdict
-import os
 
 def process_ains_from_csv(input_csv, output_folder, batch_size=50):
     """
@@ -225,6 +227,6 @@ def save_data_by_year(data_by_year, output_folder):
 if __name__ == '__main__':
     # Example usage
     input_csv = 'ains2.csv'  # Input CSV file containing AINs
-    output_csv = 'extracted_data.csv'  # Output directory for tax data CSVs
+    output_csv = 'extracted_data'  # Output directory for tax data CSVs
     # Run the processing
     process_ains_from_csv(input_csv, output_csv)
