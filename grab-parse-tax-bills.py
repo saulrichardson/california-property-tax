@@ -71,12 +71,45 @@ def extract_data_from_pdf(pdf_content):
 
     pdf_content.close()
 
-    # Extract relevant fields with regular expressions
+    # Initialize a dictionary to store extracted data
     data = {}
-    total_tax_pattern = re.compile(r'\$([\d,]+\.\d{2})\s*DUE NOVEMBER 1, 2024', re.MULTILINE)
+
+    # Extract total tax due with a flexible pattern
+    total_tax_pattern = re.compile(r'\$([\d,]+\.\d{2})\s*DUE (?:NOVEMBER|FEBRUARY) \d{1,2}, \d{4}', re.MULTILINE)
     match = total_tax_pattern.search(text)
     if match:
         data['total_taxes'] = match.group(1).replace(',', '')
+
+    # Extract fiscal year
+    year_pattern = re.compile(r'FISCAL YEAR JULY 1, (\d{4}) TO JUNE 30, \d{4}', re.MULTILINE)
+    year_match = year_pattern.search(text)
+    if year_match:
+        data['fiscal_year'] = year_match.group(1)
+
+    # Extract land values
+    taxable_value_pattern = re.compile(r'TAXABLE VALUE\s+([\d,]+)\s+([\d,]+)', re.MULTILINE)
+    taxable_value_match = taxable_value_pattern.search(text)
+    if taxable_value_match:
+        data['taxable_land_value'] = taxable_value_match.group(1).replace(',', '')
+
+    # Extract land value
+    land_value_pattern = re.compile(r'LAND\s*([\d,]+)', re.MULTILINE)
+    land_value_match = land_value_pattern.search(text)
+    if land_value_match:
+        data['land_value'] = land_value_match.group(1).replace(',', '')
+
+    ### Regex pattern does not match field name because of parsing issue
+    # Extract total value
+    improvements_value_pattern = re.compile(r'IMPROVEMENTS\s+([\d,]+)', re.MULTILINE)
+    improvements_value_match = improvements_value_pattern.search(text)
+    if improvements_value_match:
+        data['total_value'] = improvements_value_match.group(1).replace(',', '')
+
+    # Extract total value (if available)
+    total_value_pattern = re.compile(r'TOTAL\s+([\d,]+)', re.MULTILINE)
+    total_value_match = total_value_pattern.search(text)
+    if total_value_match:
+        data['total_value'] = total_value_match.group(1).replace(',', '')
 
     print(data)
     return data
@@ -84,11 +117,21 @@ def extract_data_from_pdf(pdf_content):
 def process_pdf_link(pdf_link, ain):
     """Processes a PDF link: fetches the PDF and extracts data."""
     try:
+        # Extract the token from the URL
+        base_url, token_param = pdf_link.split('?')
+        token = token_param.split('=')[1]  # Get the token value after '='
+
+        # Define headers with Authorization
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36"
+        }
+
         # Use a session to manage cookies, if required
         session = requests.Session()
 
-        # Make request with session
-        pdf_response = session.get(pdf_link)
+        # Make request with session and headers
+        pdf_response = session.get(base_url, headers=headers)
         pdf_response.raise_for_status()  # Check for request errors
         pdf_content = pdf_response.content
 
@@ -116,36 +159,72 @@ def process_ain(ain):
 
     return pdf_data_list
 
-def process_ains_from_csv(input_csv, output_csv):
+from collections import defaultdict
+import os
+
+def process_ains_from_csv(input_csv, output_folder, batch_size=50):
     """
     Reads AINs from a CSV file, retrieves PDF links, extracts data from PDFs,
-    and writes the data back to the CSV file.
+    and writes the data to separate CSV files for each fiscal year in batches.
     """
+    # Create output folder if it doesn’t exist
+    os.makedirs(output_folder, exist_ok=True)
+
     # Read AINs from CSV
     df = pd.read_csv(input_csv)
-    all_pdf_data = []
+    ains = df['AIN']
 
-    # Use ThreadPoolExecutor for parallel processing
+    data_by_year = defaultdict(list)
+    batch_count = 0
+
     with ThreadPoolExecutor(max_workers=5) as executor:
-        future_to_ain = {executor.submit(process_ain, ain): ain for ain in df['AIN']}
+        futures = []
 
-        for future in as_completed(future_to_ain):
-            ain = future_to_ain[future]
-            try:
-                pdf_data = future.result()
-                all_pdf_data.extend(pdf_data)
-            except Exception as e:
-                print(f"Error processing AIN {ain}: {e}")
+        # Process AINs in batches
+        for i, ain in enumerate(ains, start=1):
+            futures.append(executor.submit(process_ain, ain))
 
-    # Create a DataFrame and save it to CSV
-    pdf_data_df = pd.DataFrame(all_pdf_data)
-    pdf_data_df.to_csv(output_csv, index=False)
-    print(f"Extracted data saved to {output_csv}")
+            # When the batch size is reached or it's the last item, save progress
+            if i % batch_size == 0 or i == len(ains):
+                # Collect completed futures
+                for future in as_completed(futures):
+                    try:
+                        pdf_data = future.result()
+                        for record in pdf_data:
+                            fiscal_year = record.get('fiscal_year')
+                            if fiscal_year:
+                                data_by_year[fiscal_year].append(record)
+                    except Exception as e:
+                        print(f"Error processing AIN: {e}")
+
+                # Save data by fiscal year after each batch
+                save_data_by_year(data_by_year, output_folder)
+
+                # Reset batch variables
+                batch_count += 1
+                print(f"Batch {batch_count} saved.")
+                data_by_year.clear()  # Clear data after each batch is saved
+                futures.clear()  # Reset futures for the next batch
+
+def save_data_by_year(data_by_year, output_folder):
+    """
+    Saves data grouped by fiscal year to separate CSV files.
+    Appends to existing files if they already exist.
+    """
+    for fiscal_year, records in data_by_year.items():
+        output_csv = f"{output_folder}/tax_data_{fiscal_year}.csv"
+
+        # Append to CSV if it exists; otherwise, create a new one
+        mode = 'a' if os.path.exists(output_csv) else 'w'
+        header = mode == 'w'
+
+        year_df = pd.DataFrame(records)
+        year_df.to_csv(output_csv, mode=mode, index=False, header=header)
 
 
 if __name__ == '__main__':
     # Example usage
     input_csv = 'ains2.csv'  # Input CSV file containing AINs
-    output_csv = 'extracted_data.csv'  # Output CSV file for extracted data
+    output_csv = 'extracted_data.csv'  # Output directory for tax data CSVs
     # Run the processing
     process_ains_from_csv(input_csv, output_csv)
