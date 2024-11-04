@@ -1,15 +1,11 @@
 # LA Property Tax Map
 
-## Overview
+### Overview
+The two main Python scripts are designed to retrieve property tax data and details for each AIN (property) and organize it for data analysis and visualization.
 
-The LA Property Tax Map is a Flask application that visualizes property tax data for Los Angeles on an interactive map. Each property is displayed as a circle, color-coded based on the ratio of its tax bill to its market value. This application provides an intuitive way to explore and analyze property tax rates across different locations in Los Angeles.
+*First Script*: Sends POST requests to retrieve property tax bill PDF links, then downloads each PDF, extracts values like fiscal year, taxable values, and total tax due using regular expressions, and stores the data in separate CSVs by fiscal year.
 
-### Requirements
-
-- Python 3.6+
-- GeoPandas
-- Pandas
-- Shapely
+*Second Script*: Sends GET requests to a different API to retrieve parcel details based on AINs and saves these details to a single CSV file.
 
 ### Deployment
 As of August 7, 2024, pushing to `main` results in create-map.py being run-- necessary files are put in the build directory, which is then pushed to the `gh-pages` branch. This results in Github Page's automatic deployment and the site can then be found [here](https://saulrichardson.github.io/california-property-tax). To deploy a version of this app with the [LA Paracels GDB](https://apps.gis.lacounty.gov/hubfiles/LACounty_Parcels.zip), push the codebase with the production-ready change to prod.
