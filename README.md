@@ -14,7 +14,7 @@ As of August 7, 2024, pushing to `main` results in create-map.py being run-- nec
 
 ### Thoughts
 
-Due to GitHub's file size limitations, the GDB file used to gain access to every AIN in Los Angeles county is not uploaded to this repository. It can be found [here](https://example.com), downloaded, and then preferably dropped in the repository's `resources` directory. This directory listed in the repository's `.gitignore` file, stopping all of its content from being uploaded to GitHub. The same goes for `tax_data.csv`, which approached 1.62GB.
+Due to GitHub's file size limitations, the GDB file used to gain access to every AIN in Los Angeles county is not uploaded to this repository. It can be found [here](https://hub.arcgis.com/datasets/lacounty::la-county-parcel-map-service/about3), downloaded, and then preferably dropped in the repository's `resources` directory. This directory listed in the repository's `.gitignore` file, stopping all of its content from being uploaded to GitHub. The same goes for `tax_data.csv`, which approached 1.62GB.
 
 The process of converting all of this data to an accessible GeoJSON is still a work in progress and this `README.md` will be updated accordingly.
 
