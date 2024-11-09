@@ -10,7 +10,7 @@ OUTPUT_PATH = "build/property_data.geojson"
 # Helper function to calculate effective tax rate
 def calculate_effective_tax_rate(total_taxes, assessed_value):
     try:
-        return round((total_taxes / assessed_value) * 100, 2) if assessed_value else 0
+        return (total_taxes / assessed_value) * 100 if assessed_value else 0
     except (TypeError, ZeroDivisionError):
         return 0
 
@@ -41,9 +41,9 @@ def create_geojson(year):
                 properties = {
                     "AIN": assessor_info.get("AIN", "N/A"),
                     "Address": f"{assessor_info.get('SitusStreet', 'N/A')}, {assessor_info.get('SitusCity', 'N/A')} {assessor_info.get('SitusZipCode', 'N/A')}",
-                    "Assessed Value": f"${assessor_info.get('CurrentRoll_LandValue', 'N/A')}",
+                    "Assessed Value": f"${float(assessor_info.get('CurrentRoll_LandValue', 1)) + float(assessor_info.get('CurrentRoll_ImpValue', 1))}",
                     "Property Tax Bill": f"${tax_row.get('total_taxes', 'N/A')} in {year}",
-                    "Effective Tax Rate": f"{calculate_effective_tax_rate(float(tax_row.get('total_taxes', 0)), float(assessor_info.get('CurrentRoll_LandValue', 1)))}",
+                    "Effective Tax Rate": f"{calculate_effective_tax_rate(float(tax_row.get('total_taxes', 0)), float(assessor_info.get('CurrentRoll_LandValue', 1)) + float(assessor_info.get('CurrentRoll_ImpValue', 1)))}",
                     "Tax Class": assessor_info.get("UseType", "N/A"),
                     "Tax Rate Comparison": "Data Unavailable",  # Calculate and populate as needed
                 }

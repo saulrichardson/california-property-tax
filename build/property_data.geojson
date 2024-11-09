@@ -13,9 +13,9 @@
       "properties": {
         "AIN": "2004001012",
         "Address": "8304 MAYNARD AVE, LOS ANGELES CA 91304-3331",
-        "Assessed Value": "$456210",
+        "Assessed Value": "$727655.0",
         "Property Tax Bill": "$8981.92 in 2023",
-        "Effective Tax Rate": "1.97",
+        "Effective Tax Rate": "1.234365186798689",
         "Tax Class": "Single Family Residence",
         "Tax Rate Comparison": "Data Unavailable"
       }
@@ -32,9 +32,9 @@
       "properties": {
         "AIN": "2504011082",
         "Address": "14200 FOOTHILL BLVD, 11, LOS ANGELES CA 91342-7587",
-        "Assessed Value": "$343436",
+        "Assessed Value": "$520199.0",
         "Property Tax Bill": "$6255.82 in 2023",
-        "Effective Tax Rate": "1.82",
+        "Effective Tax Rate": "1.202582088777564",
         "Tax Class": "Condominium",
         "Tax Rate Comparison": "Data Unavailable"
       }
@@ -51,9 +51,9 @@
       "properties": {
         "AIN": "2004001014",
         "Address": "8312 MAYNARD AVE, LOS ANGELES CA 91304-3331",
-        "Assessed Value": "$320043",
+        "Assessed Value": "$599937.0",
         "Property Tax Bill": "$7416.24 in 2023",
-        "Effective Tax Rate": "2.32",
+        "Effective Tax Rate": "1.236169797828772",
         "Tax Class": "Single Family Residence",
         "Tax Rate Comparison": "Data Unavailable"
       }
@@ -70,9 +70,9 @@
       "properties": {
         "AIN": "2004001013",
         "Address": "8308 MAYNARD AVE, LOS ANGELES CA 91304-3331",
-        "Assessed Value": "$206883",
+        "Assessed Value": "$526936.0",
         "Property Tax Bill": "$6657.67 in 2023",
-        "Effective Tax Rate": "3.22",
+        "Effective Tax Rate": "1.263468428803498",
         "Tax Class": "Single Family Residence",
         "Tax Rate Comparison": "Data Unavailable"
       }
@@ -89,9 +89,9 @@
       "properties": {
         "AIN": "2004001011",
         "Address": "8301 MAYNARD AVE, LOS ANGELES CA 91304-3332",
-        "Assessed Value": "$122556",
+        "Assessed Value": "$295302.0",
         "Property Tax Bill": "$4003.09 in 2023",
-        "Effective Tax Rate": "3.27",
+        "Effective Tax Rate": "1.3555919025269048",
         "Tax Class": "Single Family Residence",
         "Tax Rate Comparison": "Data Unavailable"
       }
@@ -108,9 +108,9 @@
       "properties": {
         "AIN": "2004001015",
         "Address": "8318 MAYNARD AVE, LOS ANGELES CA 91304-3331",
-        "Assessed Value": "$115891",
+        "Assessed Value": "$321803.0",
         "Property Tax Bill": "$4198.80 in 2023",
-        "Effective Tax Rate": "3.62",
+        "Effective Tax Rate": "1.3047734172770298",
         "Tax Class": "Single Family Residence",
         "Tax Rate Comparison": "Data Unavailable"
       }
@@ -127,9 +127,9 @@
       "properties": {
         "AIN": "2004001016",
         "Address": "8324 MAYNARD AVE, LOS ANGELES CA 91304-3331",
-        "Assessed Value": "$124068",
+        "Assessed Value": "$277937.0",
         "Property Tax Bill": "$3684.77 in 2023",
-        "Effective Tax Rate": "2.97",
+        "Effective Tax Rate": "1.3257572759294374",
         "Tax Class": "Single Family Residence",
         "Tax Rate Comparison": "Data Unavailable"
       }
@@ -146,9 +146,9 @@
       "properties": {
         "AIN": "2004001017",
         "Address": "8330 MAYNARD AVE, LOS ANGELES CA 91304-3331",
-        "Assessed Value": "$138720",
+        "Assessed Value": "$417081.0",
         "Property Tax Bill": "$5428.12 in 2023",
-        "Effective Tax Rate": "3.91",
+        "Effective Tax Rate": "1.3014546335124353",
         "Tax Class": "Single Family Residence",
         "Tax Rate Comparison": "Data Unavailable"
       }
