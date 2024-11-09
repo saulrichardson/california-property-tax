@@ -33,7 +33,7 @@ def flatten_parcel_data(parcel_data):
             flattened_data[key] = value
     return flattened_data
 
-def save_to_csv(data, filename='tax_data.csv'):
+def save_to_csv(data, filename='assessor_data.csv'):
     if not data:
         print("No data to save.")
         return
@@ -69,7 +69,7 @@ if __name__ == '__main__':
         batch_data = process_batch(batch, batch_num + 1, total_batches)
 
         # Save batch data after each batch
-        save_to_csv(batch_data, 'tax_data.csv')
+        save_to_csv(batch_data, 'assessor_data.csv')
         property_data.extend(batch_data)
 
     print("All batches processed and data saved.")

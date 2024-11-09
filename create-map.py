@@ -13,7 +13,7 @@ gdf = gpd.GeoDataFrame(data, crs="EPSG:4326")
 csv_data = {
     'APN': ['123', '456', '789'],
     'TAX_BILL': [1000, 2000, 3000],
-    'MARKET_VALUE': [10000, 25000, 60000]
+    'ASSESSED_VALUE': [10000, 25000, 60000]
 }
 csv_df = pd.DataFrame(csv_data)
 
@@ -22,8 +22,8 @@ def update_dataframe_with_csv(gdf, csv_df):
     csv_df = csv_df.set_index('APN')
     gdf = gdf[gdf['APN'].isin(csv_df.index)]  # Keep only rows with matching CSV entries
     gdf['TAX_BILL'] = gdf['APN'].map(csv_df['TAX_BILL'])
-    gdf['MARKET_VALUE'] = gdf['APN'].map(csv_df['MARKET_VALUE'])
-    gdf['RATIO'] = gdf['TAX_BILL'] / gdf['MARKET_VALUE']
+    gdf['ASSESSED_VALUE'] = gdf['APN'].map(csv_df['ASSESSED_VALUE'])
+    gdf['RATIO'] = gdf['TAX_BILL'] / gdf['ASSESSED_VALUE']
     return gdf
 
 gdf = update_dataframe_with_csv(gdf, csv_df)
