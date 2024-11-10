@@ -39,17 +39,21 @@ fetch('./property_data.geojson')
                 layer.on('click', () => {
                     // Update Property Details tab
                     const content = `
-                                <div class="property-details-content">
-                                    <p><b>APN:</b> ${ain}</p>
-                                    <p><b>ADDRESS:</b> ${address}</p>
-                                    <p><b>TAX CLASS:</b> ${taxClass}</p>
-                                    <p><b>ASSESSED VALUE:</b> ${USDollar.format(assessedValue)}</p>
-                                    <p><b>TAX BILL:</b> ${USDollar.format(taxBill)}</p>
-                                    <p><b>EFFECTIVE TAX RATE:</b> ${parseFloat(effectiveTaxRate).toFixed(3)}%</p>
-                                    <p><b>TAX RATE COMPARISON:</b> ${taxRateComparison}</p>
+                                <div class="row small">
+                                    <div class="col-md-6">
+                                        <p><b>APN:</b> ${ain}</p>
+                                        <p><b>ADDRESS:</b> ${address}</p>
+                                        <p><b>TAX CLASS:</b> ${taxClass}</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><b>ASSESSED VALUE:</b> ${USDollar.format(assessedValue)}</p>
+                                        <p><b>TAX BILL:</b> ${USDollar.format(taxBill)}</p>
+                                        <p><b>EFFECTIVE TAX RATE:</b> ${parseFloat(effectiveTaxRate).toFixed(3)}%</p>
+                                        <p><b>TAX RATE COMPARISON:</b> ${taxRateComparison}</p>
+                                    </div>
                                 </div>
                             `;
-                    window.postMessage({ type: 'propertyDetails', content: content }, '*');
+                    window.postMessage({type: 'propertyDetails', content: content}, '*');
                 });
             },
             pointToLayer: function (feature, latlng) {
