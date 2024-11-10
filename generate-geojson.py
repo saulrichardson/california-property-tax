@@ -41,9 +41,9 @@ def create_geojson(year):
                 properties = {
                     "AIN": assessor_info.get("AIN", "N/A"),
                     "Address": f"{assessor_info.get('SitusStreet', 'N/A')}, {assessor_info.get('SitusCity', 'N/A')} {assessor_info.get('SitusZipCode', 'N/A')}",
-                    "Assessed Value": f"${float(assessor_info.get('CurrentRoll_LandValue', 1)) + float(assessor_info.get('CurrentRoll_ImpValue', 1))}",
-                    "Property Tax Bill": f"${tax_row.get('total_taxes', 'N/A')} in {year}",
-                    "Effective Tax Rate": f"{calculate_effective_tax_rate(float(tax_row.get('total_taxes', 0)), float(assessor_info.get('CurrentRoll_LandValue', 1)) + float(assessor_info.get('CurrentRoll_ImpValue', 1)))}",
+                    "Assessed Value": f"{tax_row.get('total_value', 'N/A')}",
+                    "Property Tax Bill": f"{tax_row.get('total_taxes', 'N/A')}",
+                    "Effective Tax Rate": f"{calculate_effective_tax_rate(float(tax_row.get('total_taxes', 0)), float(tax_row.get('total_value', 1)))}",
                     "Tax Class": assessor_info.get("UseType", "N/A"),
                     "Tax Rate Comparison": "Data Unavailable",  # Calculate and populate as needed
                 }

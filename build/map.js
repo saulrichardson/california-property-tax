@@ -1,5 +1,11 @@
 const map = L.map('map').setView([34.05, -118.25], 11);
 
+// format number to US dollar
+USDollar = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+});
+
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
     attribution: '© OpenStreetMap contributors'
@@ -37,9 +43,9 @@ fetch('./property_data.geojson')
                                     <p><b>APN:</b> ${ain}</p>
                                     <p><b>ADDRESS:</b> ${address}</p>
                                     <p><b>TAX CLASS:</b> ${taxClass}</p>
-                                    <p><b>ASSESSED VALUE:</b> ${assessedValue}</p>
-                                    <p><b>TAX BILL:</b> ${taxBill}</p>
-                                    <p><b>EFFECTIVE TAX RATE:</b> ${effectiveTaxRate}</p>
+                                    <p><b>ASSESSED VALUE:</b> ${USDollar.format(assessedValue)}</p>
+                                    <p><b>TAX BILL:</b> ${USDollar.format(taxBill)}</p>
+                                    <p><b>EFFECTIVE TAX RATE:</b> ${parseFloat(effectiveTaxRate).toFixed(3)}%</p>
                                     <p><b>TAX RATE COMPARISON:</b> ${taxRateComparison}</p>
                                 </div>
                             `;
