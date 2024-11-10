@@ -1,7 +1,7 @@
 # LA Property Tax Map
 
 ### Overview
-The three main Python scripts are designed to retrieve property tax data and details for each AIN (property) and organize it for data analysis and visualization.
+These Python scripts are designed to retrieve property tax data and details for each AIN (property) and organize it for data analysis and visualization.
 
 `grab-ains-from-gdb.py`: Given a GDB that points to every valid AIN in Los Angeles county, creates a CSV file of only the AINs.
 
