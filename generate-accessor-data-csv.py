@@ -56,7 +56,7 @@ def process_batch(batch, batch_num, total_batches):
     return batch_data
 
 if __name__ == '__main__':
-    ains = fetch_ains('ains.csv')
+    ains = fetch_ains('resources/ains.csv')
     total_ains = len(ains)
     batch_size = 100  # Define batch size
     total_batches = math.ceil(total_ains / batch_size)

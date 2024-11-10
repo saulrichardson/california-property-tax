@@ -19,5 +19,5 @@ def extract_ains_from_gdb(gdb_path, output_file):
 
 if __name__ == '__main__':
     gdb_path = '/resources/LACounty_Parcels.gdb' # Not provided in git repository due to size limitations, but you can download it from https://apps.gis.lacounty.gov/hubfiles/LACounty_Parcels.zip
-    output_file = 'ains.csv'  # Specify your output file name
+    output_file = 'resources/ains.csv'  # Specify your output file name
     extract_ains_from_gdb(gdb_path, output_file)
