@@ -115,7 +115,6 @@ def extract_data_from_pdf(pdf_content):
     if total_value_match:
         data['total_value'] = total_value_match.group(1).replace(',', '')
 
-    print(data)
     return data
 
 def process_pdf_link(pdf_link, ain):
@@ -227,6 +226,6 @@ def save_data_by_year(data_by_year, output_folder):
 if __name__ == '__main__':
     # Example usage
     input_csv = 'sample_ains.csv'  # Input CSV file containing AINs
-    output_csv = 'extracted_tax_data'  # Output directory for tax data CSVs
+    output_csv = 'resources/extracted_tax_data'  # Output directory for tax data CSVs
     # Run the processing
     process_ains_from_csv(input_csv, output_csv)

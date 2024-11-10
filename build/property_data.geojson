@@ -152,6 +152,709 @@
         "Tax Class": "Single Family Residence",
         "Tax Rate Comparison": "Data Unavailable"
       }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.620668303,
+          34.2200390973
+        ]
+      },
+      "properties": {
+        "AIN": "2004001004",
+        "Address": "8313 FAUST AVE, LOS ANGELES CA 91304-3327",
+        "Assessed Value": "614135",
+        "Property Tax Bill": "7886.72",
+        "Effective Tax Rate": "1.284199728072818",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.622705718,
+          34.2203338242
+        ]
+      },
+      "properties": {
+        "AIN": "2004001008",
+        "Address": "8325 MAYNARD AVE, LOS ANGELES CA 91304-3332",
+        "Assessed Value": "343516",
+        "Property Tax Bill": "4625.09",
+        "Effective Tax Rate": "1.3463972566052238",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.623049514,
+          34.2203225638
+        ]
+      },
+      "properties": {
+        "AIN": "2004001009",
+        "Address": "8311 MAYNARD AVE, LOS ANGELES CA 91304-3332",
+        "Assessed Value": "343085",
+        "Property Tax Bill": "4633.67",
+        "Effective Tax Rate": "1.350589504058761",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.620675751,
+          34.2198575863
+        ]
+      },
+      "properties": {
+        "AIN": "2004001005",
+        "Address": "8309 FAUST AVE, LOS ANGELES CA 91304-3327",
+        "Assessed Value": "710724",
+        "Property Tax Bill": "8967.14",
+        "Effective Tax Rate": "1.2616908954812276",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.620668807,
+          34.2202197879
+        ]
+      },
+      "properties": {
+        "AIN": "2004001003",
+        "Address": "8321 FAUST AVE, LOS ANGELES CA 91304-3327",
+        "Assessed Value": "993006",
+        "Property Tax Bill": "12412.58",
+        "Effective Tax Rate": "1.2500005035216302",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.623152241,
+          34.2201271211
+        ]
+      },
+      "properties": {
+        "AIN": "2004001010",
+        "Address": "8305 MAYNARD AVE, LOS ANGELES CA 91304-3332",
+        "Assessed Value": "327428",
+        "Property Tax Bill": "4351.83",
+        "Effective Tax Rate": "1.3290952514751335",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.623139276,
+          34.2198578673
+        ]
+      },
+      "properties": {
+        "AIN": "2004001011",
+        "Address": "8301 MAYNARD AVE, LOS ANGELES CA 91304-3332",
+        "Assessed Value": "289512",
+        "Property Tax Bill": "4003.09",
+        "Effective Tax Rate": "1.3827026168172651",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.62296878,
+          34.219683158
+        ]
+      },
+      "properties": {
+        "AIN": "2004001012",
+        "Address": "8304 MAYNARD AVE, LOS ANGELES CA 91304-3331",
+        "Assessed Value": "713388",
+        "Property Tax Bill": "8981.92",
+        "Effective Tax Rate": "1.2590511755173903",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.622300516,
+          34.2197037197
+        ]
+      },
+      "properties": {
+        "AIN": "2004001014",
+        "Address": "8312 MAYNARD AVE, LOS ANGELES CA 91304-3331",
+        "Assessed Value": "581900",
+        "Property Tax Bill": "7416.24",
+        "Effective Tax Rate": "1.2744870252620726",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.62260294,
+          34.2197055165
+        ]
+      },
+      "properties": {
+        "AIN": "2004001013",
+        "Address": "8308 MAYNARD AVE, LOS ANGELES CA 91304-3331",
+        "Assessed Value": "516605",
+        "Property Tax Bill": "6657.67",
+        "Effective Tax Rate": "1.2887351070934272",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.622281903,
+          34.2199362348
+        ]
+      },
+      "properties": {
+        "AIN": "2004001015",
+        "Address": "8318 MAYNARD AVE, LOS ANGELES CA 91304-3331",
+        "Assessed Value": "315494",
+        "Property Tax Bill": "4198.80",
+        "Effective Tax Rate": "1.3308652462487403",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.622166789,
+          34.2201415625
+        ]
+      },
+      "properties": {
+        "AIN": "2004001016",
+        "Address": "8324 MAYNARD AVE, LOS ANGELES CA 91304-3331",
+        "Assessed Value": "272488",
+        "Property Tax Bill": "3684.77",
+        "Effective Tax Rate": "1.3522687237603124",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.622142816,
+          34.2203790446
+        ]
+      },
+      "properties": {
+        "AIN": "2004001017",
+        "Address": "8330 MAYNARD AVE, LOS ANGELES CA 91304-3331",
+        "Assessed Value": "408903",
+        "Property Tax Bill": "5428.12",
+        "Effective Tax Rate": "1.3274835352149532",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.621723908,
+          34.2203859585
+        ]
+      },
+      "properties": {
+        "AIN": "2004001018",
+        "Address": "8331 PONCE AVE, LOS ANGELES CA 91304-3336",
+        "Assessed Value": "819902",
+        "Property Tax Bill": "10355.56",
+        "Effective Tax Rate": "1.2630241175164836",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.621749098,
+          34.2201505054
+        ]
+      },
+      "properties": {
+        "AIN": "2004001019",
+        "Address": "8321 PONCE AVE, LOS ANGELES CA 91304-3336",
+        "Assessed Value": "809294",
+        "Property Tax Bill": "10114.07",
+        "Effective Tax Rate": "1.2497398967495126",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.621506314,
+          34.2196941118
+        ]
+      },
+      "properties": {
+        "AIN": "2004001022",
+        "Address": "8303 PONCE AVE, LOS ANGELES CA 91304-3336",
+        "Assessed Value": "516550",
+        "Property Tax Bill": "6661.06",
+        "Effective Tax Rate": "1.2895286032329882",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.621122717,
+          34.2203935251
+        ]
+      },
+      "properties": {
+        "AIN": "2004001026",
+        "Address": "8330 PONCE AVE, LOS ANGELES CA 91304-3335",
+        "Assessed Value": "287329",
+        "Property Tax Bill": "3884.45",
+        "Effective Tax Rate": "1.3519171402816978",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.621121223,
+          34.2201512432
+        ]
+      },
+      "properties": {
+        "AIN": "2004001025",
+        "Address": "8320 PONCE AVE, LOS ANGELES CA 91304-3335",
+        "Assessed Value": "347481",
+        "Property Tax Bill": "4604.29",
+        "Effective Tax Rate": "1.3250479882353279",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.620670375,
+          34.2204154818
+        ]
+      },
+      "properties": {
+        "AIN": "2004001027",
+        "Address": "8329 FAUST AVE, LOS ANGELES CA 91304-3327",
+        "Assessed Value": "610333",
+        "Property Tax Bill": "7694.32",
+        "Effective Tax Rate": "1.2606757294788253",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.620664005,
+          34.2196608592
+        ]
+      },
+      "properties": {
+        "AIN": "2004001028",
+        "Address": "8303 FAUST AVE, LOS ANGELES CA 91304-3327",
+        "Assessed Value": "991425",
+        "Property Tax Bill": "12340.53",
+        "Effective Tax Rate": "1.2447265299947048",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.621167949,
+          34.2196747813
+        ]
+      },
+      "properties": {
+        "AIN": "2004001029",
+        "Address": "8300 PONCE AVE, LOS ANGELES CA 91304-3335",
+        "Assessed Value": "528625",
+        "Property Tax Bill": "6848.83",
+        "Effective Tax Rate": "1.2955932844644125",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.621112144,
+          34.219907379
+        ]
+      },
+      "properties": {
+        "AIN": "2004001030",
+        "Address": "8310 PONCE AVE, LOS ANGELES CA 91304-3335",
+        "Assessed Value": "550348",
+        "Property Tax Bill": "7074.24",
+        "Effective Tax Rate": "1.28541213922827",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.621847656,
+          34.2199062599
+        ]
+      },
+      "properties": {
+        "AIN": "2004001031",
+        "Address": "8315 PONCE AVE, LOS ANGELES CA 91304-3336",
+        "Assessed Value": "859903",
+        "Property Tax Bill": "10876.10",
+        "Effective Tax Rate": "1.264805448986688",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.621852769,
+          34.2196913717
+        ]
+      },
+      "properties": {
+        "AIN": "2004001032",
+        "Address": "8309 PONCE AVE, LOS ANGELES CA 91304-3336",
+        "Assessed Value": "270721",
+        "Property Tax Bill": "3654.18",
+        "Effective Tax Rate": "1.3497955459679891",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.622300516,
+          34.2197037197
+        ]
+      },
+      "properties": {
+        "AIN": "2004001014",
+        "Address": "8312 MAYNARD AVE, LOS ANGELES CA 91304-3331",
+        "Assessed Value": "581900",
+        "Property Tax Bill": "7416.24",
+        "Effective Tax Rate": "1.2744870252620726",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.62260294,
+          34.2197055165
+        ]
+      },
+      "properties": {
+        "AIN": "2004001013",
+        "Address": "8308 MAYNARD AVE, LOS ANGELES CA 91304-3331",
+        "Assessed Value": "516605",
+        "Property Tax Bill": "6657.67",
+        "Effective Tax Rate": "1.2887351070934272",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.62296878,
+          34.219683158
+        ]
+      },
+      "properties": {
+        "AIN": "2004001012",
+        "Address": "8304 MAYNARD AVE, LOS ANGELES CA 91304-3331",
+        "Assessed Value": "713388",
+        "Property Tax Bill": "8981.92",
+        "Effective Tax Rate": "1.2590511755173903",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.44393362,
+          34.3165256663
+        ]
+      },
+      "properties": {
+        "AIN": "2504011082",
+        "Address": "14200 FOOTHILL BLVD, 11, LOS ANGELES CA 91342-7587",
+        "Assessed Value": "510000",
+        "Property Tax Bill": "6255.82",
+        "Effective Tax Rate": "1.2266313725490194",
+        "Tax Class": "Condominium",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.623139276,
+          34.2198578673
+        ]
+      },
+      "properties": {
+        "AIN": "2004001011",
+        "Address": "8301 MAYNARD AVE, LOS ANGELES CA 91304-3332",
+        "Assessed Value": "289512",
+        "Property Tax Bill": "4003.09",
+        "Effective Tax Rate": "1.3827026168172651",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.622281903,
+          34.2199362348
+        ]
+      },
+      "properties": {
+        "AIN": "2004001015",
+        "Address": "8318 MAYNARD AVE, LOS ANGELES CA 91304-3331",
+        "Assessed Value": "315494",
+        "Property Tax Bill": "4198.80",
+        "Effective Tax Rate": "1.3308652462487403",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.622166789,
+          34.2201415625
+        ]
+      },
+      "properties": {
+        "AIN": "2004001016",
+        "Address": "8324 MAYNARD AVE, LOS ANGELES CA 91304-3331",
+        "Assessed Value": "272488",
+        "Property Tax Bill": "3684.77",
+        "Effective Tax Rate": "1.3522687237603124",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.623161747,
+          34.2220452054
+        ]
+      },
+      "properties": {
+        "AIN": "2004002007",
+        "Address": "8378 FALLBROOK AVE, LOS ANGELES CA 91304-3231",
+        "Assessed Value": "812093",
+        "Property Tax Bill": "10116.42",
+        "Effective Tax Rate": "1.2457218569794346",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.622142816,
+          34.2203790446
+        ]
+      },
+      "properties": {
+        "AIN": "2004001017",
+        "Address": "8330 MAYNARD AVE, LOS ANGELES CA 91304-3331",
+        "Assessed Value": "408903",
+        "Property Tax Bill": "5428.12",
+        "Effective Tax Rate": "1.3274835352149532",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.623162358,
+          34.2222951723
+        ]
+      },
+      "properties": {
+        "AIN": "2004002006",
+        "Address": "8384 FALLBROOK AVE, LOS ANGELES CA 91304-3231",
+        "Assessed Value": "560282",
+        "Property Tax Bill": "7126.27",
+        "Effective Tax Rate": "1.2719077178992009",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.623161156,
+          34.2217953706
+        ]
+      },
+      "properties": {
+        "AIN": "2004002008",
+        "Address": "8370 FALLBROOK AVE, LOS ANGELES CA 91304-3231",
+        "Assessed Value": "406234",
+        "Property Tax Bill": "5344.58",
+        "Effective Tax Rate": "1.315640739081416",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.62316055,
+          34.2215455308
+        ]
+      },
+      "properties": {
+        "AIN": "2004002009",
+        "Address": "8362 FALLBROOK AVE, LOS ANGELES CA 91304-3231",
+        "Assessed Value": "273037",
+        "Property Tax Bill": "3625.03",
+        "Effective Tax Rate": "1.327669876243879",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -118.62315994,
+          34.2212908959
+        ]
+      },
+      "properties": {
+        "AIN": "2004002010",
+        "Address": "8356 FALLBROOK AVE, LOS ANGELES CA 91304-3231",
+        "Assessed Value": "169209",
+        "Property Tax Bill": "2499.20",
+        "Effective Tax Rate": "1.4769899946220353",
+        "Tax Class": "Single Family Residence",
+        "Tax Rate Comparison": "Data Unavailable"
+      }
     }
   ]
 }
